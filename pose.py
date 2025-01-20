@@ -15,16 +15,17 @@ def set_pepper_pose():
     head_pitch = 0.15521  # Up/down rotation
     motion_proxy.setAngles(["HeadYaw", "HeadPitch"], [head_yaw, head_pitch], 0.2)
 
-    # Arm angles
-    left_shoulder_pitch = 0.25131
-    left_shoulder_roll = 0.53421
-    left_elbow_yaw = 0.36757
-    left_elbow_roll = 0.60147
+    # Left arm angles
+    left_shoulder_pitch = 1.5  # Approximation for "up"
+    left_shoulder_roll = 0.5  # Away from the torso
+    left_elbow_yaw = -1.0  # Rotation
+    left_elbow_roll = -0.5  # Slightly bent
 
-    right_shoulder_pitch = 0.27621
-    right_shoulder_roll = 0.29358
-    right_elbow_yaw = 0.40686
-    right_elbow_roll = 0.23589
+    # Right arm angles
+    right_shoulder_pitch = 1.0  # Slightly down
+    right_shoulder_roll = -0.3  # Closer to torso
+    right_elbow_yaw = 1.0  # Rotation
+    right_elbow_roll = 0.5  # Slightly bent
 
     motion_proxy.setAngles([
         "LShoulderPitch", "LShoulderRoll", "LElbowYaw", "LElbowRoll",
@@ -32,18 +33,6 @@ def set_pepper_pose():
     ], [
         left_shoulder_pitch, left_shoulder_roll, left_elbow_yaw, left_elbow_roll,
         right_shoulder_pitch, right_shoulder_roll, right_elbow_yaw, right_elbow_roll
-    ], 0.2)
-
-    # Hip angles
-    left_hip_pitch = 0.48977
-    left_hip_roll = 0.51471
-    right_hip_pitch = 0.50066
-    right_hip_roll = 0.38069
-
-    motion_proxy.setAngles([
-        "LHipPitch", "LHipRoll", "RHipPitch", "RHipRoll"
-    ], [
-        left_hip_pitch, left_hip_roll, right_hip_pitch, right_hip_roll
     ], 0.2)
 
     # Optionally wait to hold the pose
