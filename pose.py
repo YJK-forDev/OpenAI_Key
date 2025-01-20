@@ -15,24 +15,26 @@ def set_pepper_pose():
     head_pitch = 0.15521  # Up/down rotation
     motion_proxy.setAngles(["HeadYaw", "HeadPitch"], [head_yaw, head_pitch], 0.2)
 
-    # Left arm angles
-    left_shoulder_pitch = 1.5  # Approximation for "up"
-    left_shoulder_roll = 0.5  # Away from the torso
-    left_elbow_yaw = -1.0  # Rotation
-    left_elbow_roll = -0.5  # Slightly bent
+    # Left arm angles (more bent, closer to torso, rotated inward)
+    left_shoulder_pitch = 1.4  # Slightly lower
+    left_shoulder_roll = 0.2  # Closer to the torso
+    left_elbow_yaw = -1.2  # Rotation
+    left_elbow_roll = -1.5  # More bent inward
+    left_wrist_yaw = -0.5  # Adjusted wrist orientation
 
-    # Right arm angles
-    right_shoulder_pitch = 1.0  # Slightly down
-    right_shoulder_roll = -0.3  # Closer to torso
-    right_elbow_yaw = 1.0  # Rotation
-    right_elbow_roll = 0.5  # Slightly bent
+    # Right arm angles (fully bent, closer to torso)
+    right_shoulder_pitch = 0.8  # Lower position
+    right_shoulder_roll = 0.0  # Neutral, close to torso
+    right_elbow_yaw = 1.8  # Rotation
+    right_elbow_roll = 1.5  # Fully bent
+    right_wrist_yaw = 0.5  # Adjusted wrist orientation
 
     motion_proxy.setAngles([
-        "LShoulderPitch", "LShoulderRoll", "LElbowYaw", "LElbowRoll",
-        "RShoulderPitch", "RShoulderRoll", "RElbowYaw", "RElbowRoll"
+        "LShoulderPitch", "LShoulderRoll", "LElbowYaw", "LElbowRoll", "LWristYaw",
+        "RShoulderPitch", "RShoulderRoll", "RElbowYaw", "RElbowRoll", "RWristYaw"
     ], [
-        left_shoulder_pitch, left_shoulder_roll, left_elbow_yaw, left_elbow_roll,
-        right_shoulder_pitch, right_shoulder_roll, right_elbow_yaw, right_elbow_roll
+        left_shoulder_pitch, left_shoulder_roll, left_elbow_yaw, left_elbow_roll, left_wrist_yaw,
+        right_shoulder_pitch, right_shoulder_roll, right_elbow_yaw, right_elbow_roll, right_wrist_yaw
     ], 0.2)
 
     # Optionally wait to hold the pose
